@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div class="container">
+    <h1 >Welcome To ChatGpt</h1>
+    <div class="container">
+        <div class="input-group flex-nowrap">
+            <form action="#" method="post" th:action="@{/create}" th:object="${user}">
+                <input th:field="*{username}" type="text" class="form-control" placeholder="Enter username" aria-label="username" aria-labelledby="addon-wrapping">
+                <br>
+                <input th:field="*{username}" type="text" class="form-control" placeholder="Enter Password" aria-label=" password" aria-labelledby="addon-wrapping">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

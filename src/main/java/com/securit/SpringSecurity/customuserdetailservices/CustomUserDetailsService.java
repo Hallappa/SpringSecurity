@@ -1,11 +1,15 @@
-package com.securit.SpringSecurity;
+package com.securit.SpringSecurity.customuserdetailservices;
 
 
+import com.securit.SpringSecurity.doa.User;
+import com.securit.SpringSecurity.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CustomUserDetailsService implements UserDetailsService {
 
 
@@ -20,10 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
         return org.springframework.security.core.userdetails.User.withUsername(user.getUsername())
                 .password(user.getPassword())
-                .authorities("USER") // Set user roles here
-                .accountExpired(false)
-                .accountLocked(false)
-                .credentialsExpired(false)
+                .roles(user.getRoles().toArray(new String[0]))
                 .build();
     }
 }

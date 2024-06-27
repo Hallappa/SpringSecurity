@@ -1,10 +1,10 @@
-package com.securit.SpringSecurity;
+package com.securit.SpringSecurity.doa;
 
 
-
-import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -15,8 +15,17 @@ public class User {
 
     private String username;
     private String password;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<String> roles = new HashSet<>();    // Getters and Setters
 
-    // Getters and Setters
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
+    }
+
     public Long getId() {
         return id;
     }

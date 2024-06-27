@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></head>
+
+
+</head>
+<body>
+<div class="container bg-light p-4 mt-4 rounded">
+<div class="profile-container">
+    <h2>User Profile</h2>
+    <ul>
+        <li th:each="record : ${users}">
+            Username: <span th:text="${record.username}"></span>,
+            Password: <span th:text="${record.password}"></span>
+        </li>
+    </ul>
+</div>
+</div>
+</body>
+</html>

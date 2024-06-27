@@ -1,23 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:background-color="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-</head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></head>
 <body>
+<div class="container bg-light p-4 mt-4 rounded">
 <h2>Login</h2>
-<h2 th:text="'Message: ' + ${Result}"></h2>
+<h2 >Welcome</h2>
+
 <form th:action="@{/user}" method="post">
-    <div>
+    <div >
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
     </div>
     <div>
-        <label for="password">Password:</label>
+        <label for="password">Password :</label>
         <input type="password" id="password" name="password" required>
     </div>
-    <button type="submit">Login</button>
+    <button class="btn btn-primary" type="submit">Login</button>
 </form>
-
+</div>
+  <br>
+<div class="container bg-light p-4 mt-4 rounded">
+<div class="form-container">
+    <h2>Create Profile</h2>
+    <div class="container">
+        <div class="input-group flex-nowrap">
+            <form action="#" method="post" th:action="@{/create}" th:object="${user}">
+                <input th:field="*{username}" type="text" class="form-control" placeholder="Enter username" aria-label="username" aria-labelledby="addon-wrapping">
+                <br>
+                <input th:field="*{password}" type="text" class="form-control" placeholder="Enter Password" aria-label=" password" aria-labelledby="addon-wrapping">
+                <br>
+                <input th:field="*{roles}" type="text" class="form-control" placeholder="Enter Roles" aria-label=" roles" aria-labelledby="addon-wrapping">
+               <br> <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
 </body>
 </html>

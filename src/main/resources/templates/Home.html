@@ -3,20 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></head>
+
 </head>
 <body>
-<div class="container">
-    <h1 >Welcome To ChatGpt</h1>
-    <div class="container">
-        <div class="input-group flex-nowrap">
-            <form action="#" method="post" th:action="@{/create}" th:object="${user}">
-                <input th:field="*{username}" type="text" class="form-control" placeholder="Enter username" aria-label="username" aria-labelledby="addon-wrapping">
-                <br>
-                <input th:field="*{username}" type="text" class="form-control" placeholder="Enter Password" aria-label=" password" aria-labelledby="addon-wrapping">
-                <button class="btn btn-primary" type="submit">Submit</button>
-            </form>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><form th:action="@{/admin/users}" method="get">
+        <button  type="submit" class="btn btn-primary">click for all</button>
+
+    </form></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><form th:action="@{/logout}" method="get">
+                    <button  type="submit" class="btn btn-primary">Logout</button>
+
+                </form></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Settings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
+        </ul>
     </div>
-</div>
+</nav>
 </body>
 </html>

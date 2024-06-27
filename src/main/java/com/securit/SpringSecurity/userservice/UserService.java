@@ -1,10 +1,13 @@
-package com.securit.SpringSecurity;
+package com.securit.SpringSecurity.userservice;
 
+import com.securit.SpringSecurity.doa.User;
+import com.securit.SpringSecurity.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,6 +32,16 @@ public class UserService {
             throw new UsernameNotFoundException("User not found: " + username);
         }
         return passwordEncoder.matches(rawPassword, user.getPassword());
+    }
+    public List<User> getAllUser()
+    {
+
+        return userRepository.findAll();
+    }
+    public Optional<User> getUserById(String id)
+    {
+
+        return userRepository.findById(id);
     }
 }
 
